@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Hero {
   String name;
   int hp;
@@ -22,6 +24,21 @@ class Cleric extends Hero {
       mp -= 5;
       hp = maxHp;
     }
+  }
+
+  int pray(int sec) {
+    int recoveryMp = sec + Random().nextInt(3); // 0 ~ 2
+
+    int beforeMp = mp;  // 회복 전 MP
+
+    mp += recoveryMp;
+
+    // if (maxMp < mp) {
+    //   mp = maxMp;
+    // }
+    mp = min(mp, maxMp);
+
+    return mp - beforeMp;
   }
 }
 
