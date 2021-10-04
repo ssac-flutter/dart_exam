@@ -16,8 +16,14 @@ class Cleric extends Hero {
   int mp = maxMp;
 
   Cleric(String name, int hp) : super(name, hp);
-}
 
+  void selfAid() {
+    if (mp >= 5) {
+      mp -= 5;
+      hp = maxHp;
+    }
+  }
+}
 
 void main(List<String> arguments) {
   final hong = Hero('홍길동', 100);
@@ -29,5 +35,4 @@ void main(List<String> arguments) {
   print(lim2.hashCode);
 
   final cleric = Cleric('우서', 300);
-
 }
